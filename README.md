@@ -8,7 +8,7 @@ Installation
 ------------
 
 ~~~
-% npm install -g dfsio-parse
+% npm install -g https://github.com/jhamlet/dfsio-parse/archive/v1.0.0.tar.gz
 ~~~
 
 
