@@ -1,20 +1,25 @@
 dfsio-parse
 ===========
 
-> Lorem ipsum dolar sit amet.
-
+> Takes in (STDIN) a structured log file and outputs (STDOUT) a JSON stringified
+> version of the log.
 
 Installation
 ------------
 
 ~~~
-% npm install dfsio-parse
+% npm install -g dfsio-parse
 ~~~
 
 
-Summary
--------
+Usage
+-----
 
+```
+$ dfsio-parse < file/to/parse
+# or
+$ cat file/to/parse | dfsio-parse
+```
 
 Report an Issue
 ---------------
