@@ -1,0 +1,35 @@
+{
+    "name": "dfsio-parse",
+    "fullname": "dfsio-parse",
+    "description": "Lorem ipsum dolar sit amet.",
+    "version": "0.0.0",
+    "keywords": [],
+    "main": "./lib/index.js",
+    "dependencies": {
+        "lodash":  "^3.0",
+        "protean": "^0.6",
+        "ramda":   "^0.18",
+        "rx":      "^4.0"
+    },
+    "devDependencies": {
+        "mocha":    "^2.0",
+        "should":   "^7.0",
+        "del":      "^2.1",
+        "gulp":     "^3.9",
+        "gulp-ejs": "^1.2"
+    },
+    "scripts": {
+        "build": "./node_modules/.bin/gulp",
+        "clobber": "./node_modules/.bin/gulp clobber",
+        "test": "./node_modules/.bin/mocha --harmony -R spec $(find ./test -n '*.js')"
+    },
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "http://github.com/jhamlet/dfsio-parse.git"
+    },
+    "bugs": {
+        "url": "http://github.com/jhamlet/dfsio-parse/issues"
+    },
+    "private": true
+}
