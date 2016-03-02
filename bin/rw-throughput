@@ -1,0 +1,37 @@
+#!/usr/bin/env node
+
+var R          = require('ramda');
+var readStream = require('../lib/read-stream');
+var TYPE       = 'TestDFSIO';
+var THROUGHPUT = 'Throughput mb/sec';
+var TIME       = 'Test exec time sec'
+
+readStream(function (error, json) {
+    var data = JSON.parse(json);
+
+    var reads =
+            data.
+            filter(function (record) {
+                return record[TYPE] === 'read';
+            });
+
+    var writes =
+            data.
+            filter(function (record) {
+                return record[TYPE] === 'write';
+            });
+
+    console.log('read,read-time,write,write-time');
+    R.zipWith(function (a, b) {
+            return [
+                a[THROUGHPUT],
+                a[TIME],
+                b[THROUGHPUT],
+                b[TIME],
+            ];
+        }, reads, writes).
+        forEach(function (columns) {
+            console.log.apply(console, ['%s,%s'].concat(columns));
+        });
+
+}, process.stdin);

@@ -2,6 +2,9 @@
     "name": "dfsio-parse",
     "version": "1.0.0",
     "main": "./lib/index.js",
+    "dependencies": {
+        "ramda": "^0.19"
+    },
     "bin": {
         "dfsio-parse": "./bin/parse"
     },
