@@ -1,37 +1,30 @@
 #!/usr/bin/env node
 
-var R          = require('ramda');
+// var R          = require('ramda');
+var csv        = require('fast-csv');
 var readStream = require('../lib/read-stream');
 var TYPE       = 'TestDFSIO';
+var DATE       = 'Date & time';
 var THROUGHPUT = 'Throughput mb/sec';
 var TIME       = 'Test exec time sec'
 
 readStream(function (error, json) {
     var data = JSON.parse(json);
 
-    var reads =
-            data.
-            filter(function (record) {
-                return record[TYPE] === 'read';
-            });
-
-    var writes =
-            data.
-            filter(function (record) {
-                return record[TYPE] === 'write';
-            });
-
-    console.log('read,read-time,write,write-time');
-    R.zipWith(function (a, b) {
-            return [
-                a[THROUGHPUT],
-                a[TIME],
-                b[THROUGHPUT],
-                b[TIME],
-            ];
-        }, reads, writes).
-        forEach(function (columns) {
-            console.log.apply(console, ['%s,%s,%s,%s'].concat(columns));
-        });
+    csv.writeToStream(
+        process.stdout, 
+        [['type', 'datetime', 'throughput', 'exectime' ]].
+            concat(
+                data.
+                    map(function (record) {
+                        return [
+                            record[TYPE],
+                            new Date(record[DATE]).toGMTString(),
+                            record[THROUGHPUT],
+                            record[TIME]
+                        ];
+                    })
+            )
+        );
 
 }, process.stdin);

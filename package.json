@@ -1,20 +1,22 @@
 {
-    "name": "dfsio-parse",
-    "version": "1.0.0",
-    "main": "./lib/index.js",
-    "dependencies": {
-        "ramda": "^0.19"
-    },
-    "bin": {
-        "dfsio-parse": "./bin/parse"
-    },
-    "license": "MIT",
-    "repository": {
-        "type": "git",
-        "url": "http://github.com/jhamlet/dfsio-parse.git"
-    },
-    "bugs": {
-        "url": "http://github.com/jhamlet/dfsio-parse/issues"
-    },
-    "private": true
+  "name": "dfsio-parse",
+  "version": "1.0.0",
+  "main": "./lib/index.js",
+  "dependencies": {
+    "csv": "^0.4.6",
+    "fast-csv": "^1.0.0",
+    "ramda": "^0.19"
+  },
+  "bin": {
+    "dfsio-parse": "./bin/parse"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/jhamlet/dfsio-parse.git"
+  },
+  "bugs": {
+    "url": "http://github.com/jhamlet/dfsio-parse/issues"
+  },
+  "private": true
 }
