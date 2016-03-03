@@ -31,7 +31,7 @@ readStream(function (error, json) {
             ];
         }, reads, writes).
         forEach(function (columns) {
-            console.log.apply(console, ['%s,%s'].concat(columns));
+            console.log.apply(console, ['%s,%s,%s,%s'].concat(columns));
         });
 
 }, process.stdin);
